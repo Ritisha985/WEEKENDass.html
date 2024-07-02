@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Layout</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            color: black;
+            text-decoration: solid white;
+            background: url("antoine-j-FLmujG5l7uE-unsplash.jpg");
+            background-size: cover;
+            text-align: center;
+            text-shadow: #f1f16c;
+            font-family: sans-serif;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid black;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: #76bbf3;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .logo img {
+            width: 90%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .sitename, .contact {
+            flex: 1;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .contact a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .content {
+            margin: 20px 0;
+        }
+
+        .content p {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-spacing: 10px;
+        }
+
+        td {
+            vertical-align: top;
+            padding: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f16c;
+            border-top: 1px solid #d9f79b;
+            font-size: 0.8em;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 10px;
+            background-color: red;
+            border-radius: 25px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="97ceaae7a40da04536bb57d56605383e.jpg" alt="chill">
+            </div>
+            <div class="sitename">BANG BANG MUSIC & CONCERTS</div>
+            <div class="contact">
+                <a href="mailto:ritishadash0@gmail.com">Contact</a>
+            </div>
+        </header>
+        <div class="content">
+            <p>KEEPS YOU UPDATED WITH THE UPCOMING EVENTS AND FESTS NEAR YOU AND NOTIFIES YOU ABOUT ALL THE OFFERS.<br> SUBCRIBE NOW AT JUST RS.299/- PER MONTH</p>
+            <form id="MyForm" form action = "javascript:submitMyForm()" onSubmit = "return validate()">
+                <table>
+                    <tr>
+                        <td>NAME</td>
+                        <td><input type="text" name="name" class="form-input" id="Name" placeholder="Enter your name" required></td>
+                    </tr>
+                    <tr>
+                        <td>EMAIL</td>
+                        <td><input type="email" name="email" class="form-input" id="Email" placeholder="Enter your email" required></td>
+                    </tr>
+                    <tr>
+                        <td>LOCATION</td>
+                        <td>
+                            <input list="location" name="location" class="form-input" placeholder="Enter your city" required>
+                            <datalist id="location">
+                                <option value="Amaravati">
+                                <option value="Agra">
+                                <option value="Amritsar">
+                                <option value="Aurangabad">
+                                <option value="Bangalore">
+                                <option value="Bhopal">
+                                <option value="Bhubaneswar">
+                                <option value="Chandigarh">
+                                <option value="Chennai">
+                                <option value="Darjeeling">
+                                <option value="Dehradun">
+                                <option value="Gangtok">
+                                <option value="Goa">
+                                <option value="Gurgaon">
+                                <option value="Hyderabad">
+                                <option value="Indore">
+                                <option value="Jaipur">
+                                <option value="Jamshedpur">
+                                <option value="Jalandhar">
+                                <option value="Jodhpur">
+                                <option value="Kolkata">
+                                <option value="Kota">
+                                <option value="Leh">
+                                <option value="Lucknow">
+                                <option value="Ludhiana">
+                                <option value="Manali">
+                                <option value="Mumbai">
+                                <option value="Mussoorie">
+                                <option value="Mysore">
+                                <option value="Nagpur">
+                                <option value="Nainital">
+                                <option value="New Delhi">
+                                <option value="Ooty">
+                                <option value="Palampur">
+                                <option value="Pune">
+                                <option value="Rishikesh">
+                                <option value="Shimla">
+                                <option value="Srinagar">
+                                <option value="Surat">
+                                <option value="Tirupati">
+                                <option value="Udaipur">
+                                <option value="Vishakapatnam">
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="subscribe"></td>
+                        <td>PROCEED WITH SUBSCRIPTION</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit" class="submit-button">SUBCRIBE</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <script>
+                function validate() 
+                {
+                  let validated = false;
+                  let ele = document.getElementById("Name");
+                  if (ele.value.length <= 2) 
+                  {
+                    validated = false;
+                  } 
+                  else 
+                  {
+                    validated = true;
+                  }
+                  if (validated == true) 
+                  {
+                    submitMyForm();
+                  }
+                  else
+                  {
+                    window.alert("Length must be greater than 2 characters");
+                  }
+                }
+                function submitMyForm() 
+                {
+                  window.alert("Form Submitted");
+                }
+              </script>
+        </div>
+        <div class="footer">
+            <p><br>ALL RIGHTS RESERVED@bangbangconcert</p>
+        </div>
+    </div>
+</body>
+</html>
